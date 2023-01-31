@@ -8,8 +8,8 @@ void main() {
 
   //  Sebetdeki mehsul haqqinda melumatlar
   String productName = "Crucial RAM 8GB DDR4 3200MHz Laptop Memory";
-  double productPrice = 21.99;
-  num productAmount = 5;
+  double productPrice = 100;
+  num productAmount = 1;
   double totalPrice = productPrice * productAmount;
 
   print("******* Xoş gəlmisiniz! *******");
@@ -21,7 +21,7 @@ void main() {
   print("Sifre: ");
   String? password = stdin.readLineSync();
 
-  if (true) {
+  if (email == defaultEmail && password == defaultPassword) {
     print("******* Ugurla giris etdiniz! *******");
 
     print("Sizin səbətiniz");
@@ -44,31 +44,7 @@ void main() {
 
         switch (key) {
           case "1":
-            print("******* Ödəniş növünü seçin *******");
-            print("1. Kartla\n" + "2. Nağd");
-
-            key = stdin.readLineSync();
-
-            if (key == "1") {
-              print("******* Kart məlumatlarınızı daxil edin *******");
-
-              print("Kartınızın 16 rəqəmli nömrəsi: ");
-              String? cardNumber = stdin.readLineSync();
-
-              print("Son istifadə tarixi: ");
-              String? date = stdin.readLineSync();
-
-              print("CVC: ");
-              String? cvc = stdin.readLineSync();
-
-              print(
-                  "Ödəniş uğurla həyata keçdi! İstədiyiniz vaxt mağazımıza yaxınlaşıb məhsulunuzu əldə edə bilərsiniz.");
-              print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
-            } else if (key == "2") {
-              print(
-                  "Məhsul sizin üçün ayrıldı! Xahiş olunur 3 gün ərzində mağazamıza yaxınlaşaraq məhsulu əldə edəsiniz, əks halda məhsul yenidən satışa çıxarılacaq.");
-              print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
-            }
+            payment(totalPrice);
             break;
 
           case "2":
@@ -95,37 +71,13 @@ void main() {
 
             if (city != "baki") {
               print("Çatdırılma xidməti 4 ₼!\n" +
-                  "Son ödəniləcək məbləğ: ${totalPrice + 4} ₼");
+                  "Son ödəniləcək məbləğ: ${totalPrice += 4} ₼");
             } else {
               print("Çatdırılma xidməti 2 ₼!\n" +
-                  "Son ödəniləcək məbləğ: ${totalPrice + 2} ₼");
+                  "Son ödəniləcək məbləğ: ${totalPrice += 2} ₼");
             }
 
-            print("******* Ödəniş növünü seçin *******");
-            print("1. Kartla\n" + "2. Nağd");
-
-            key = stdin.readLineSync();
-
-            if (key == "1") {
-              print("******* Kart məlumatlarınızı daxil edin *******");
-
-              print("Kartınızın 16 rəqəmli nömrəsi: ");
-              String? cardNumber = stdin.readLineSync();
-
-              print("Son istifadə tarixi: ");
-              String? date = stdin.readLineSync();
-
-              print("CVC: ");
-              String? cvc = stdin.readLineSync();
-
-              print(
-                  "Ödəniş uğurla həyata keçdi! İstədiyiniz vaxt mağazımıza yaxınlaşıb məhsulunuzu əldə edə bilərsiniz.");
-              print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
-            } else if (key == "2") {
-              print(
-                  "Məhsul sizin üçün ayrıldı! Xahiş olunur 3 gün ərzində mağazamıza yaxınlaşaraq məhsulu əldə edəsiniz, əks halda məhsul yenidən satışa çıxarılacaq.");
-              print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
-            }
+            payment(totalPrice);
 
             break;
 
@@ -139,10 +91,114 @@ void main() {
       default:
         print("Yanlış seçim");
     }
+  } else {
+    print("Istifadeci adi ve ya sifre yanlisdir!");
   }
-  //  else {
-  //   print("Istifadeci adi ve ya sifre yanlisdir!");
-  // }
 }
 
-void my() {}
+int payment(double totalPrice) {
+  print("******* Ödəniş növünü seçin *******");
+  print("1. Kartla\n" + "2. Nağd\n" + "3. Kredit");
+
+  String? key = stdin.readLineSync();
+
+  if (key == "1") {
+    print("******* Kart məlumatlarınızı daxil edin *******");
+
+    print("Kartınızın 16 rəqəmli nömrəsi: ");
+    String? cardNumber = stdin.readLineSync();
+
+    print("Son istifadə tarixi: ");
+    String? date = stdin.readLineSync();
+
+    print("CVC: ");
+    String? cvc = stdin.readLineSync();
+
+    print(
+        "Ödəniş uğurla həyata keçdi! İstədiyiniz vaxt mağazımıza yaxınlaşıb məhsulunuzu əldə edə bilərsiniz.");
+    print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
+
+    return (0);
+  } else if (key == "2") {
+    print(
+        "Sifarişiniz qəbul olundu. Sifarişin tamamlanması zamanı sizin tərəfinizdən bir problem çıxdığı halda məhsul yenidən satışa çıxarılacaq!");
+    print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
+    return (0);
+  } else if (key == "3") {
+    print(
+        "******* Kredit şərtləri ilə tanış olub, istədiyiniz krediti seçin. *******");
+    print("1. 3 aylıq kredit => Faizsiz\n" +
+        "2. 6 aylıq kredit => 10% əlavə\n" +
+        "3. 12 aylıq kredit => 40% əlavə");
+
+    int? key = int.parse(stdin.readLineSync()!);
+
+    switch (key) {
+      case 1:
+        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 3}");
+        print("Ümumi məbləğ: ${totalPrice}");
+
+        print(
+            "Krediti təsdiq edirsinizsə {y}, etmirsinizsə {n} düyməsini basın!");
+        String? click = stdin.readLineSync();
+        click != null ? click = click.toLowerCase() : click;
+        if (click == "y") {
+          print("################################");
+          print(
+              'Sifarişiniz uğurla tamamlandı. Hər ayın sonuncu həftəsinin cümə gününə qədər ödənişi həyata keçirməyi unutmayın. Əks halda keçən hər gün üçün 1% əlavə olunacaq!');
+          print("Bizi seçdiyiniz üçün təşəkkürlər!");
+        } else if (click == "n") {
+          print('hello');
+        } else {
+          print('Yanlış seçim');
+        }
+        break;
+      case 2:
+        totalPrice = totalPrice * 1.1;
+        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 6}");
+        print("Ümumi məbləğ: ${totalPrice}");
+
+        print(
+            "Krediti təsdiq edirsinizsə {y}, etmirsinizsə {n} düyməsini basın!");
+        String? click = stdin.readLineSync();
+        click != null ? click = click.toLowerCase() : click;
+        if (click == "y") {
+          print("################################");
+          print(
+              'Sifarişiniz uğurla tamamlandı. Hər ayın sonuncu həftəsinin cümə gününə qədər ödənişi həyata keçirməyi unutmayın. Əks halda keçən hər gün üçün 1% əlavə olunacaq!');
+          print("Bizi seçdiyiniz üçün təşəkkürlər!");
+        } else if (click == "n") {
+          print('hello');
+        } else {
+          print('Yanlış seçim');
+        }
+        break;
+      case 3:
+        totalPrice = totalPrice * 1.4;
+        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 12}");
+        print("Ümumi məbləğ: ${totalPrice}");
+
+        print(
+            "Krediti təsdiq edirsinizsə {y}, etmirsinizsə {n} düyməsini basın!");
+        String? click = stdin.readLineSync();
+        click != null ? click = click.toLowerCase() : click;
+        if (click == "y") {
+          print("################################");
+          print(
+              'Sifarişiniz uğurla tamamlandı. Hər ayın sonuncu həftəsinin cümə gününə qədər ödənişi həyata keçirməyi unutmayın. Əks halda keçən hər gün üçün 1% əlavə olunacaq!');
+          print("Bizi seçdiyiniz üçün təşəkkürlər!");
+        } else if (click == "n") {
+          print('hello');
+        } else {
+          print('Yanlış seçim');
+        }
+        break;
+      default:
+    }
+
+    return (0);
+  } else {
+    print("Yanlış seçim");
+    return (0);
+  }
+}
