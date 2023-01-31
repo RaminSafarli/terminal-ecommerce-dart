@@ -21,7 +21,7 @@ void main() {
   print("Sifre: ");
   String? password = stdin.readLineSync();
 
-  if (email == defaultEmail && password == defaultPassword) {
+  if (email == defaultEmail.trim() && password == defaultPassword.trim()) {
     print("******* Ugurla giris etdiniz! *******");
 
     print("Sizin səbətiniz");
