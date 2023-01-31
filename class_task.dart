@@ -96,7 +96,7 @@ void main() {
   }
 }
 
-int payment(double totalPrice) {
+void payment(double totalPrice) {
   print("******* Ödəniş növünü seçin *******");
   print("1. Kartla\n" + "2. Nağd\n" + "3. Kredit");
 
@@ -117,13 +117,10 @@ int payment(double totalPrice) {
     print(
         "Ödəniş uğurla həyata keçdi! İstədiyiniz vaxt mağazımıza yaxınlaşıb məhsulunuzu əldə edə bilərsiniz.");
     print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
-
-    return (0);
   } else if (key == "2") {
     print(
         "Sifarişiniz qəbul olundu. Sifarişin tamamlanması zamanı sizin tərəfinizdən bir problem çıxdığı halda məhsul yenidən satışa çıxarılacaq!");
     print("******* Bizi seçdiyiniz üçün təşəkkürlər! *******");
-    return (0);
   } else if (key == "3") {
     print(
         "******* Kredit şərtləri ilə tanış olub, istədiyiniz krediti seçin. *******");
@@ -135,8 +132,8 @@ int payment(double totalPrice) {
 
     switch (key) {
       case 1:
-        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 3}");
-        print("Ümumi məbləğ: ${totalPrice}");
+        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 3} ₼");
+        print("Ümumi məbləğ: ${totalPrice} ₼");
 
         print(
             "Krediti təsdiq edirsinizsə {y}, etmirsinizsə {n} düyməsini basın!");
@@ -148,15 +145,15 @@ int payment(double totalPrice) {
               'Sifarişiniz uğurla tamamlandı. Hər ayın sonuncu həftəsinin cümə gününə qədər ödənişi həyata keçirməyi unutmayın. Əks halda keçən hər gün üçün 1% əlavə olunacaq!');
           print("Bizi seçdiyiniz üçün təşəkkürlər!");
         } else if (click == "n") {
-          print('hello');
+          print("Təşəkkür edirik!");
         } else {
           print('Yanlış seçim');
         }
         break;
       case 2:
         totalPrice = totalPrice * 1.1;
-        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 6}");
-        print("Ümumi məbləğ: ${totalPrice}");
+        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 6} ₼");
+        print("Ümumi məbləğ: ${totalPrice} ₼");
 
         print(
             "Krediti təsdiq edirsinizsə {y}, etmirsinizsə {n} düyməsini basın!");
@@ -168,15 +165,15 @@ int payment(double totalPrice) {
               'Sifarişiniz uğurla tamamlandı. Hər ayın sonuncu həftəsinin cümə gününə qədər ödənişi həyata keçirməyi unutmayın. Əks halda keçən hər gün üçün 1% əlavə olunacaq!');
           print("Bizi seçdiyiniz üçün təşəkkürlər!");
         } else if (click == "n") {
-          print('hello');
+          print("Təşəkkür edirik!");
         } else {
           print('Yanlış seçim');
         }
         break;
       case 3:
         totalPrice = totalPrice * 1.4;
-        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 12}");
-        print("Ümumi məbləğ: ${totalPrice}");
+        print("Aylıq ödəməli olduğunuz məbləğ: ${totalPrice / 12} ₼");
+        print("Ümumi məbləğ: ${totalPrice} ₼");
 
         print(
             "Krediti təsdiq edirsinizsə {y}, etmirsinizsə {n} düyməsini basın!");
@@ -188,17 +185,14 @@ int payment(double totalPrice) {
               'Sifarişiniz uğurla tamamlandı. Hər ayın sonuncu həftəsinin cümə gününə qədər ödənişi həyata keçirməyi unutmayın. Əks halda keçən hər gün üçün 1% əlavə olunacaq!');
           print("Bizi seçdiyiniz üçün təşəkkürlər!");
         } else if (click == "n") {
-          print('hello');
+          print("Təşəkkür edirik!");
         } else {
           print('Yanlış seçim');
         }
         break;
       default:
     }
-
-    return (0);
   } else {
     print("Yanlış seçim");
-    return (0);
   }
 }
